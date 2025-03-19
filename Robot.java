@@ -123,4 +123,32 @@ public abstract class Robot implements Porozumienie {
         long days = LocalDate.now().toEpochDay() - this.getDataProdukcji().toEpochDay();
         System.out.println("Żyję " + days + " dni.");
     }
+
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null)
+            return false;
+        if (!(o instanceof Robot))
+            return false;
+        // UWAGA: dla klas dziedziczących po `Robot` nie zostanie sprawdzone, czy to ta
+        // sama klasa, ani czy dodatkowe pola (`limit`, `zadanie`) są równe.
+        // Efekt uboczny: jest możliwa sytuacja, że np. robot.equals(robotSkladanie) ==
+        // true, a robotSkladanie.equals(robot) == false. Bardzo możliwe że tego nie
+        // chcemy, wtedy należy co najmniej sprawdzić, czy obiekty są tej samej klasy:
+        // if (this.getClass() != other.getClass()) return false;
+
+        Robot other = (Robot) o;
+
+        return this.dataProdukcji.equals(other.dataProdukcji) && this.nazwa.equals(other.nazwa)
+                && this.identyfikator.equals(other.identyfikator) && this.ileZadan == other.ileZadan
+                && this.si.equals(other.si);
+        // Porównywanie nrFabryczny trochę nie ma sensu, bo każdy robot ma inny numer,
+        // więc jest to w zasadzie równoważne z `this == other`.
+        // Identyfikator też zazwyczaj będzie inny, bo jest losowy, ale no można go
+        // sprawdzić. Ale można też nie sprawdzać.
+
+        // no chyba że właśnie tego chcemy, żeby `equals` zwracało `true` tylko kiedy
+        // porównujemy robota samego ze sobą ...ale to chyba mało interesujące
+    }
 }

@@ -60,4 +60,18 @@ public final class RobotSkladanie extends RobotFabryczny implements Porozumienie
                 "    zadanie: " + this.getZadanie() + "\n" +
                 "}";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof RobotSkladanie))
+            return false;
+        if (!super.equals(o)) // sprawdza też `null`
+            return false;
+
+        RobotSkladanie other = (RobotSkladanie) o;
+
+        return this.limit == other.limit;
+    }
 }

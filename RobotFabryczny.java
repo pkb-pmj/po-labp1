@@ -13,4 +13,17 @@ public abstract class RobotFabryczny extends Robot {
         this.zadanie = zadanie;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof RobotFabryczny))
+            return false;
+        if (!super.equals(o)) // sprawdza też `null`
+            return false;
+
+        RobotFabryczny other = (RobotFabryczny) o;
+
+        return this.zadanie == other.zadanie;
+    }
 }
