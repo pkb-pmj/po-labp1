@@ -40,7 +40,6 @@ public final class RobotSkladanie extends RobotFabryczny implements Porozumienie
         // }
     }
 
-    @Override
     public void meldunek() {
         long days = LocalDate.now().toEpochDay() - this.getDataProdukcji().toEpochDay();
         System.out.println("Żyję " + days + " dni, mogę wykonać jeszcze " + (this.limit - this.ileZadan) + " zadań.");
@@ -48,5 +47,17 @@ public final class RobotSkladanie extends RobotFabryczny implements Porozumienie
 
     public void powitanie() {
         System.out.println(this.getNazwa() + " o numerze fabrycznym " + this.getNrFabryczny() + " mówi witaj");
+    }
+
+    public String toString() {
+        return "RobotSkladanie {\n" +
+                "    dataProdukcji: " + this.getDataProdukcji() + ",\n" +
+                "    nazwa: " + this.getNazwa() + ",\n" +
+                "    identyfikator: " + this.getIdentyfikator() + ",\n" +
+                "    ileZadan: " + this.getIleZadan() + ",\n" +
+                "    si: " + this.getSi() + ",\n" +
+                "    nrFabryczny: " + this.getNrFabryczny() + "\n" +
+                "    zadanie: " + this.getZadanie() + "\n" +
+                "}";
     }
 }

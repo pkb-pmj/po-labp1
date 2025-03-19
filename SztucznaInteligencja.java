@@ -16,4 +16,8 @@ public class SztucznaInteligencja {
     public SztucznaInteligencja(String reprezentacjaDanych) {
         this.reprezentacjaDanych = reprezentacjaDanych;
     }
+
+    public String toString() {
+        return "SztucznaInteligencja { reprezentacjaDanych: " + this.reprezentacjaDanych + " }";
+    }
 }

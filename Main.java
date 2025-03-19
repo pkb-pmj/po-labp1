@@ -12,13 +12,12 @@ class Main {
         };
 
         for (Robot robot : roboty) {
+            System.out.println(robot);
             robot.meldunek();
-        }
-
-        for (Robot robot : roboty) {
             if (robot instanceof RobotSkladanie) {
                 ((RobotSkladanie) robot).powitanie();
             }
+            System.out.println();
         }
     }
 }

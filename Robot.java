@@ -76,8 +76,9 @@ public abstract class Robot implements Porozumienie {
         // i zamieniamy na *dni od 01.01.1970* (od początku "epoki Unixa")
         long start = LocalDate.of(2000, 1, 1).toEpochDay();
         long end = LocalDate.of(2021, 12, 31).toEpochDay();
-        // generujemy losową liczbę całkowitą i "przenosimy" ją pomiędzy te dni
-        long day = new Random().nextLong() % (end - start) + start;
+        // generujemy losową liczbę całkowitą, bierzemy wartość bezwzględną i
+        // "przenosimy" ją pomiędzy te dni
+        long day = Math.abs(new Random().nextLong()) % (end - start) + start;
         // i tworzymy datę z dnia "epoki"
         this.dataProdukcji = LocalDate.ofEpochDay(day);
 
@@ -90,7 +91,7 @@ public abstract class Robot implements Porozumienie {
     }
 
     private String generateRandomString(int length) {
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         String s = "";
         Random random = new Random();
         for (int i = 0; i < length; i++) {
@@ -98,6 +99,8 @@ public abstract class Robot implements Porozumienie {
         }
         return s;
     }
+
+    public abstract String toString();
 
     /**
      * zadanieWykonaj – metoda Robotów symulująca działanie robota, polega na
