@@ -6,6 +6,7 @@ public enum Zadanie {
     LAKIEROWANIE,
     SKLEJANIE;
 
+    // żeby się ładnie wyświetlało
     public String toString() {
         switch (this) {
             case SKRAWANIE:
@@ -25,6 +26,7 @@ public enum Zadanie {
         }
     }
 
+    // implementujemy sobie losowanie tutaj żeby było łatwiej
     public static Zadanie losujZadanie() {
         // values() - zwraca tablicę wartości enuma
         // bierzemy z niej losowy element

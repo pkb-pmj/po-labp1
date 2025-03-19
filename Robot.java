@@ -47,7 +47,11 @@ public abstract class Robot implements Porozumienie {
     }
 
     /** SztucznaInteligencja si (obiekt SztucznaInteligencja) */
-    private SztucznaInteligencja si;
+    private SztucznaInteligencja si = new SztucznaInteligencja();
+
+    public SztucznaInteligencja getSi() {
+        return si;
+    }
 
     /**
      * nrFabryczny – numer nadawany podczas tworzenia obiektu, niezmienny podczas
